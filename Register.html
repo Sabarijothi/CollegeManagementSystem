@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container {
+            margin-top: 30px;
+            margin-left: 30px;
+
+
+        }
+
+        .hero {
+            justify-content: center;
+            text-align: center;
+            border-radius: 100%;
+            color: black;
+            font-size: large;
+            font-family: 'Times New Roman';
+            font-display: inherit;
+            background-color: rgb(126, 228, 228);
+            width: auto;
+            font-weight: 900;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <h2>Student Registration Form</h2>
+    </div>
+    <h2><b><i>Personal Details</i></b></h2>
+    <div class="container">
+        <form>
+            <label for="exampleDataList" class="form-label"><b>Title(Mr/Mrs/Ms/Miss):&nbsp;&nbsp;</b></label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                    value="option1">
+                <label class="form-check-label" for="inlineRadio1">Mr</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                    value="option2">
+                <label class="form-check-label" for="inlineRadio2">Mrs</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                    value="option2">
+                <label class="form-check-label" for="inlineRadio2">Ms</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                    value="option2">
+                <label class="form-check-label" for="inlineRadio2">Miss</label>
+            </div>
+            <div class="form-group">
+                <label for="name"><b>First Name:</b></label>
+                <input type="text" class="form-control" id="name" placeholder="Enter the First Name" required>
+            </div>
+            <div class="form-group">
+                <label for="name"><b>Last Name:</b></label>
+                <input type="text" class="form-control" id="name" placeholder="Enter the Last Name" required>
+            </div>
+            <div class="form-group">
+                <label for="name"><b>Father's Name:</b></label>
+                <input type="text" class="form-control" id="name" placeholder="Enter the Father's Name" required>
+            </div>
+            <div class="form-group">
+                <label for="name"><b>Mother's Name:</b></label>
+                <input type="text" class="form-control" id="name" placeholder="Enter the Mother's name" required>
+            </div>
+            <div class="form-group">
+                <label for="name"><b>Date of Birth:</b></label>
+                <input type="text" class="form-control" id="name" placeholder="DD/MM/YYYY" required>
+            </div>
+            <label for="exampleDataList" class="form-label"><b>Gender:&nbsp;&nbsp;</b></label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                    value="option1">
+                <label class="form-check-label" for="inlineRadio1">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                    value="option2">
+                <label class="form-check-label" for="inlineRadio2">Female</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                    value="option2">
+                <label class="form-check-label" for="inlineRadio2">Other</label>
+            </div>
+            <div class="form-group">
+                <label for="email"><b>Email:</b></label>
+                <input type="email" class="form-control" id="email" placeholder="Enter the Email Id" required>
+            </div>
+            <div class="form-group">
+                <label for="phone"><b>Phone:</b></label>
+                <input type="tel" class="form-control" id="phone" placeholder="Enter the phone number" required>
+            </div>
+            <label for="exampleDataList" class="form-label"><b>Married Status:&nbsp;&nbsp;</b></label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                    value="option1">
+                <label class="form-check-label" for="inlineRadio1">Married</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                    value="option2">
+                <label class="form-check-label" for="inlineRadio2">Single</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                    value="option2">
+                <label class="form-check-label" for="inlineRadio2">Divorce</label>
+            </div>
+            <div class="form-group">
+                <label for="Religion"><b>Religion:</b></label>
+                <select class="form-control" id="Religion">
+                    <option value="1" id="Hinduism">Hinduism</option>
+                    <option value="2" id="Islam">Islam</option>
+                    <option value="3" id="Christianity">Christianity</option>
+                    <option value="4" id="Buddhism">Buddhism</option>
+                    <option value="5" id="Irreligion">Irreligion</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Religion"><b>Community:</b></label>
+                <select class="form-control" id="Religion">
+                    <option value="1">A</option>
+                    <option value="2">B</option>
+                    <option value="3">Cy</option>
+                    <option value="4">D</option>
+                    <option value="5">E</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Caste"><b>Caste:</b></label>
+                <select class="form-control" id="Caste">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <form class="was-validated">
+                <div class="mb-3">
+                    <label for="validationTextarea" class="form-label"><b>Address:</b></label>
+                    <textarea class="form-control" id="validationTextarea" placeholder="Enter Permanent Address"
+                        required></textarea>
+                    <label for="validationServer03" class="form-label"><b>City</b></label>
+                    <input type="text" class="form-control" id="validationServer03"
+                        aria-describedby="validationServer03Feedback" required>
+                    <br>
+                    <label for="validationServer04" class="form-label"><b>District</b></label>
+                    <select class="form-control" id="validationServer04" aria-describedby="validationServer04Feedback"
+                        required>
+                        <option selected disabled value=""></option>
+                        <option>Ariyalur</option>
+                        <option>Chengalpattu</option>
+                        <option>Chennai</option>
+                        <option>Coimbatore</option>
+                        <option>Cuddalore</option>
+                        <option>Dharmapuri</option>
+                        <option>Dindigul</option>
+                        <option>Erode</option>
+                        <option>Kallakurichi</option>
+                        <option>Kancheepuram</option>
+                        <option>Karur</option>
+                        <option>Krishnagiri</option>
+                        <option>Madurai</option>
+                        <option>Mayiladuthurai</option>
+                        <option>Nagapattinam</option>
+                        <option>Nagercoil</option>
+                        <option>Namakkal</option>
+                        <option>Perambalur</option>
+                        <option>Pudukkottai</option>
+                        <option>Ramanathapuram</option>
+                        <option>Ranipet</option>
+                        <option>Salem</option>
+                        <option>Sivagangai</option>
+                        <option>Tenkasi</option>
+                        <option>Thanjavur</option>
+                        <option>Theni</option>
+                        <option>Thiruvarur</option>
+                        <option>Thoothukudi</option>
+                        <option>Tiruchirappalli</option>
+                        <option>Tirunelveli</option>
+                        <option>Tirupathur</option>
+                        <option>Tiruppur</option>
+                        <option>Tiruvannamalai</option>
+                        <option>Udagamandalam (Ootacamund)</option>
+                        <option>Vellore</option>
+                        <option>Viluppuram</option>
+                        <option>Virudhunagar</option>
+                    </select>
+                    <label for="validationServer05" class="form-label"><b>Zip</b></label>
+                    <input type="text" class="form-control" id="validationServer05"
+                        aria-describedby="validationServer05Feedback" required>
+                </div>
+            </form>
+           <!-- <form action="#Education Details" class="inline">
+					<button type="submit" class="btn btn-outline-dark">Official Website</button>
+				</form>  -->
+                <!-- <a class="nav-link" href="#Education Details"><b>NEXT</b></a> -->
+            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+            <!-- <button onclick=" class="btn btn-primary">Next</button> -->
+        </form>
+    </div>
+    <hr>
+    <form>
+    <h2><b><i>Education Details</i></b></h2>
+    <div class="container" id="Education Details">
+        <form>
+            <div class="form-group">
+                <label for="HigherEducation"><b>Higher Education:</b></label>
+                <select class="form-control" id="HigherEducation">
+                    <option value="1"></option>
+                    <option value="2">Post Graduation</option>
+                    <option value="3">Under Graduation</option>
+                    <option value="4">Diploma</option>
+                    <option value="5">12<sup>th</sup>Standard</option>
+                    <option value="6">10<sup>th</sup>Standard</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="name"><b>Course:</b></label>
+                <input type="text" class="form-control" id="name" placeholder="Enter the Higher Education" required>
+            </div>
+            <label for="exampleDataList" class="form-label"><b>Post Graduation:&nbsp;&nbsp;</b></label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                    value="option1">
+                <label class="form-check-label" for="inlineRadio1">Master of Computer Application</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                    value="option2">
+                <label class="form-check-label" for="inlineRadio2">Master of Business Application</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                    value="option2">
+                <label class="form-check-label" for="inlineRadio2">M.E. - Applied Electronics</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                    value="option2">
+                <label class="form-check-label" for="inlineRadio2">Under Graduation</label>
+            </div>
+            <label for="UnderGraduate"><b>Under Graduation:</b></label>
+                <select class="form-control" id="UnderGraduate">
+                    <option value="1"></option>
+                    <option value="2">B.E. - Civil Engineering</option>
+                    <option value="3">B.E. - Computer Science and Engineering</option>
+                    <option value="4">B.E. - Electrical and Electronics Engineering</option>
+                    <option value="5">B.E. - Electronics and Communication Engineering</option>
+                    <option value="6">B.Tech. - Information Technology</option>
+                    <option value="6">B.E. - Mechanical Engineering</option>
+                </select>
+            </div>
+        </form>  
+        <button type="submit" class="btn btn-primary">Submit</button>  
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

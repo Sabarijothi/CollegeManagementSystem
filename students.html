@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="./adminServices.js" type="text/javascript"></script>
+    <script src="./Admintempdb.js" type="text/javascript"></script>
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col">
+                <button type="button" class="btn btn-danger" onclick="logoutUser()">Logout</button>
+            </div>
+        </div>
+        <div class="col">
+            <div class="col">
+                <button type="button" class="btn btn-warning" onclick="loadStudents()">Students</button>
+            </div>
+        </div>
+       
+
+        <div class="row mt-4" id="studentsCard" style="display:flex;">
+
+        </div>
+
+    </div>
+    <script>
+
+        function loadStudents(){
+            let result="";
+            for(let student of MCAstudents){
+                result+= 
+                '<div class="col">' +
+                    '<div class="card" style="width: 18rem;">' +
+                    '<img src="' + student.url + '" class="card-img-top" alt="..." width="50px" height="300px" onclick="loadDesc(' + student.regNo + ')">' +
+                    '<div class="card-body">' +
+                    '<h5 class="card-title">' + student.studentName + '</h5>' +
+                    '<p class="card-text">' + student.fees + '</p>' +
+                    // '<p class="card-text">' + student.Religion + '</p>'
+                    '</div>' +
+                    '</div>' +
+                    "</div>";
+            }
+            document.getElementById('studentsCard').innerHTML=result;
+        }
+
+        function loadDesc(depCode) {
+            sessionStorage.setItem("REGNO", regNo);
+            window.location.href = "./studentDesc.html";
+        }
+
+
+        // function loadDepartments() {
+        //     let result = "";
+        //     for (let department of departments) {
+        //         //for (let i=0;i<2;i++){
+
+        //         result +=
+        //             '<div class="col">' +
+        //             '<div class="card" style="width: 18rem;">' +
+        //             '<img src="' + department.url + '" class="card-img-top" alt="..." width="50px" height="300px" onclick="loadDesc(' + department.depCode + ')">' +
+        //             '<div class="card-body">' +
+        //             '<h5 class="card-title">' + department.title + '</h5>' +
+        //             '<p class="card-text">' + department.desc + '</p>' +
+        //             '</div>' +
+        //             '</div>' +
+        //             "</div>";
+
+        //         //}
+        //     }
+        //     document.getElementById('departmentsCard').innerHTML = result;
+        // }
+
+        // function loadDesc(depCode) {
+        //     sessionStorage.setItem("DEPCODE", depCode);
+        //     window.location.href = "./productDesc.html";
+        // }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fees Details</title>
+</head>
+
+<body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./DetailStyle.css">
+    <div class="container">
+        <div class="head">
+            <form>
+                <h2>FEES STRUCTURE</h2>
+        </div>
+        <div class="hero">
+            <div class="row">
+                <div class="col"><b>Register ID</b></div>
+                <div class="col"><b>Student Name</b></div>
+                <div class="col"><b>Actual Fees</b></div>
+                <div class="col"><b>Pay</b></div>
+                <div class="col"><b>Balance</b></div>
+                <div class="col"><b>Action</b></div>
+            </div>
+            <div class="row mt-4">
+                <div class="col"><input type="text" id="RegId" name="RegId" class="form-control" /></div>
+                <div class="col"><input type="text" id="StudentName" name="StudentName" class="form-control" /></div>
+                <div class="col"><input type="text" id="ActualFess" name="ActualFess" class="form-control"
+                        onkeyup="calcTotal()" /></div>
+                <div class="col"><input type="text" id="PayNow" name="PayNow" class="form-control"
+                        onkeyup="calcTotal()" /></div>
+                <div class="col"><input type="text" id="Balance" name="Balance" class="form-control" readonly /></div>
+                <div class="col"><button type="button" class="btn btn-success" onclick="addProduct()">Add
+                        Detail</button></div>
+            </div>
+            <div id="listProducts"></div>
+            <div class="row mt-4">
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <!-- <div class="col">Balance Amount</div> -->
+                <div class="col"><span id="grdTotal"></span></div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </div>
+</form>
+    <script>
+        var products = [];
+        function calcTotal() {
+            let price = Number(document.getElementById('ActualFess').value);
+            let count = Number(document.getElementById('PayNow').value);
+            let total = price - count;
+            document.getElementById('Balance').value = total;
+        }
+
+        function addProduct() {
+            let id = document.getElementById('RegId').value;
+            let name = document.getElementById('StudentName').value;
+            let price = Number(document.getElementById('ActualFess').value);
+            let count = Number(document.getElementById('PayNow').value);
+            let total = Number(document.getElementById('Balance').value);
+            let product = [id, name, price, count, total];
+            products.push(product);
+            clearProduct();
+            console.log(products);
+            loadProducts();
+        }
+        function clearProduct() {
+            document.getElementById('RegId').value = '';
+            document.getElementById('StudentName').value = '';
+            document.getElementById('ActualFess').value = '';
+            document.getElementById('PayNow').value = '';
+            document.getElementById('Balance').value = '';
+        }
+        function loadProducts() {
+            let result = '';
+            let grdTotal = 0;
+            for (let product of products) {
+                result += '<div class="row mt-5">';
+                for (let pData of product) {
+                    result += '<div class="col">' + pData + '</div>';
+                }
+                result += '<div class="col">' +
+                    '<button type="button" class="btn btn-warning" onclick="updateProduct(' + product[0] + ')">Update</button>' +
+                    '<span class="ml-4"> <span>' +
+                    '<button type="button" class="btn btn-danger" onclick="deleteProduct(' + product[0] + ')">Delete</button>' +
+                    '</div>';
+                result += '</div>';
+                grdTotal += Number(product[4]);
+            }
+            document.getElementById('listProducts').innerHTML = result;
+            // document.getElementById("grdTotal").innerHTML = grdTotal;
+            console.log(result);
+        }
+
+        function deleteProduct(RegId) {
+            let prodIdx = 0;
+            for (let idx = 0; idx < products.length; idx++) {
+                if (products[idx][0] == RegId) {
+                    prodIdx = idx;
+                }
+            }
+            products.splice(prodIdx, 1);
+            loadProducts();
+        }
+
+        function updateProduct(RegId) {
+            for (let product of products) {
+                if (product[0] == RegId) {
+                    document.getElementById('RegId').value = product[0];
+                    document.getElementById('StudentName').value = product[1];
+                    document.getElementById('ActualFess').value = product[2];
+                    document.getElementById('PayNow').value = product[3];
+                    document.getElementById('Balance').value = product[4];
+                    break;
+                }
+            }
+            deleteProduct(RegId);
+        }
+
+
+    </script>
+</body>
+
+</html>

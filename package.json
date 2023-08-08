@@ -1,0 +1,15 @@
+{
+  "name": "project-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Admintempdb.js",
+  "scripts": {
+    "start": "json-server --watch ./dataBase/students.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.3"
+  }
+}

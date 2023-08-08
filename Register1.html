@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Management System</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <style>
+    .container {
+      margin-top: 50px;
+    }
+    .btn-success {
+      margin-top: 10px;
+    }
+    .alert {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Employee Management System</h2>
+    <form id="employeeForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+      <div class="form-group">
+        <label for="designation">Designation:</label>
+        <input type="text" class="form-control" id="designation" required>
+      </div>
+      <div class="form-group">
+        <label for="salary">Salary:</label>
+        <input type="number" class="form-control" id="salary" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Employee</button>
+    </form>
+    <table id="employeeTable" class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Designation</th>
+          <th>Salary</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Edit Employee Modal -->
+  <div id="editEmployeeModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit Employee</h4>
+        </div>
+        <div class="modal-body">
+          <form id="editEmployeeForm">
+            <input type="hidden" id="editEmployeeId">
+            <div class="form-group">
+              <label for="editName">Name:</label>
+              <input type="text" class="form-control" id="editName" required>
+            </div>
+            <div class="form-group">
+              <label for="editDesignation">Designation:</label>
+              <input type="text" class="form-control" id="editDesignation" required>
+            </div>
+            <div class="form-group">
+              <label for="editSalary">Salary:</label>
+              <input type="number" class="form-control" id="editSalary" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Employee</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      var employees = [];
+      var nextId = 1;
+
+      function addEmployee(name, designation, salary) {
+        var employee = {
+          id: nextId++,
+          name: name,
+          designation: designation,
+          salary: salary
+        };
+        employees.push(employee);
+        updateTable();
+        showAlert('success', 'Employee added successfully!');
+      }
+
+      function updateEmployee(id, name, designation, salary) {
+        var index = employees.findIndex(function(emp) {
+          return emp.id === id;
+        });
+        if (index !== -1) {
+          employees[index].name = name;
+          employees[index].designation = designation;
+          employees[index].salary = salary;
+          updateTable();
+          showAlert('success', 'Employee updated successfully!');
+        }
+      }
+
+      function deleteEmployee(id) {
+        var index = employees.findIndex(function(emp) {
+          return emp.id === id;
+        });
+        if (index !== -1) {
+          employees.splice(index, 1);
+          updateTable();
+          showAlert('success', 'Employee deleted successfully!');
+        }
+      }
+
+      function updateTable() {
+        var tableBody = $('#employeeTable tbody');
+        tableBody.empty();
+        employees.forEach(function(emp) {
+          var row = '<tr>' +
+            '<td>' + emp.name + '</td>' +
+            '<td>' + emp.designation + '</td>' +
+            '<td>' + emp.salary + '</td>' +
+            '<td>' +
+            '<button class="btn btn-primary btn-sm edit-btn" data-id="' + emp.id + '">Edit</button> ' +
+            '<button class="btn btn-danger btn-sm delete-btn" data-id="' + emp.id + '">Delete</button>' +
+            '</td>' +
+            '</tr>';
+          tableBody.append(row);
+        });
+      }
+
+      function showAlert(type, message) {
+        var alert = '<div class="alert alert-' + type + '">' +
+          message +
+          '</div>';
+        $('.container').prepend(alert);
+        setTimeout(function() {
+          $('.alert').remove();
+        }, 3000);
+      }
+
+      // Add Employee
+      $('#employeeForm').submit(function(event) {
+        event.preventDefault();
+        var name = $('#name').val();
+        var designation = $('#designation').val();
+        var salary = $('#salary').val();
+        addEmployee(name, designation, salary);
+        $('#name').val('');
+        $('#designation').val('');
+        $('#salary').val('');
+      });
+
+      // Edit Employee Modal
+      $('#employeeTable').on('click', '.edit-btn', function() {
+        var id = $(this).data('id');
+        var employee = employees.find(function(emp) {
+          return emp.id === id;
+        });
+        if (employee) {
+          $('#editEmployeeId').val(employee.id);
+          $('#editName').val(employee.name);
+          $('#editDesignation').val(employee.designation);
+          $('#editSalary').val(employee.salary);
+          $('#editEmployeeModal').modal('show');
+        }
+      });
+
+      // Update Employee
+      $('#editEmployeeForm').submit(function(event) {
+        event.preventDefault();
+        var id = $('#editEmployeeId').val();
+        var name = $('#editName').val();
+        var designation = $('#editDesignation').val();
+        var salary = $('#editSalary').val();
+        updateEmployee(id, name, designation, salary);
+        $('#editEmployeeModal').modal('hide');
+      });
+
+      // Delete Employee
+      $('#employeeTable').on('click', '.delete-btn', function() {
+        var id = $(this).data('id');
+        deleteEmployee(id);
+      });
+    });
+  </script>
+</body>
+</html>
+
