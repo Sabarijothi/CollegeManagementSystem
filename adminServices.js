@@ -1,12 +1,12 @@
 
-function checkSession(){
+function checkSession() {
     let userSession = sessionStorage.getItem("ADMIN");
-    if(userSession == null){
+    if (userSession == null) {
         window.location.href = "./Adminlogin.html";
     }
 }
 
-function logoutUser(){
+function logoutUser() {
     sessionStorage.removeItem('ADMIN');
     window.location.href = "./Adminlogin.html";
 }

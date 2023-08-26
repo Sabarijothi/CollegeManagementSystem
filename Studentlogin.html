@@ -77,42 +77,6 @@
             }
         </style>
         <script>
-    //         fetch("http://localhost:3000/students")
-    //             .then(function (response) {
-    //                 return response.json();
-    //             })
-    //             .then(function (products) {
-    //                 let placeholder = document.querySelector("#tbod");
-    //                 let out = "";
-    //                 for (let product of products) {
-    //                     out += `
-    //      <tr>
-    //         <td>${product.name}</td>
-    //         <td>${product.email}</td>
-    //         <td>${product.fees}</td>
-    //         <td>${product.dob}</td>
-    //         <td>${product.productCode}</td>
-    //      </tr>
-    //   `;
-    //                 }
-
-    //                 placeholder.innerHTML = out;
-    //             });
-    //         function getStudents() {
-    //             let result = "";
-    //             for (let student of students) {
-    //                 result += student.name + "" + student.pswd + "";
-    //             }
-    //             document.getElementById('modelData').innerHTML = result;
-    //         }
-            // function getUsers()
-            // {
-            //     let result = "";
-            //     for(let user of users){
-            //         result += user.RegisterNo + " " + user.pswd + "<br>";
-            //     } 
-            //     document.getElementById('modelData').innerHTML = result;
-            // }
             function validateLogin() {
                 let department = document.querySelector('#SBCEC-department').value;
                 console.log(department);
@@ -179,27 +143,7 @@
                         }
                     }
                 }
-                    // for (let student of department) {
-                    //     console.log(student.regNo);
-                    //     console.log(student.pswd);
-                    //     if (student.regNo == RegisterNo) {
-                    //         if (student.pswd == pswd) {
 
-                    //             //success
-                    //             sessionStorage.setItem("STUDENT", student.studentName);
-                    //             window.location.href = "./studentIndex.html";
-                    //             // document.getElementById('modelLink').click();
-                    //             // getStudents();
-                    //             /*sessionStorage.setItem("student", RegisterNo);
-                    //             window.location.href = "./products.html";*/
-                    //         } else {
-                    //             lgMsg.innerHTML = "Incorrect Password....";
-                    //         }
-                    //         break;
-                    //     } else {
-                    //         lgMsg.innerHTML = "student not Found...";
-                    //     }
-                    // }
                 }
         </script>
     </body>
