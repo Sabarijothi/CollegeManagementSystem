@@ -31,7 +31,7 @@ const Mechstudents=[
 ];
 const ECEstudents=[
     {regNo: 2021007 ,url:'./Imagae/studentImages/images-4.jpg',studentName:'SHAMINI CATHERINE R', fees:'Balance Fees- 0', gender: 'Male', Caste: '#', Address:'##',pswd:'test1234'},
-    {regNo: 2021008 ,url:'./Imagae/studentImages/image-5.jpg',studentName:'SHANTHINI R', fees: 'Balance Fees- 10300', gender: 'Male', Caste: '#', Address:'##',pswd:'test1234'},
+    {regNo: 2021008 ,url:'./Imagae/studentImages/images-5.jpg',studentName:'SHANTHINI R', fees: 'Balance Fees- 10300', gender: 'Male', Caste: '#', Address:'##',pswd:'test1234'},
     {regNo: 2021009 ,url:'./Imagae/studentImages/images-9.jpg',studentName:'SANDHYA V', fees: 'Balance Fees- 3500', gender: 'Male', Caste: '#', Address:'##',pswd:'test1234'},
     
 ];
